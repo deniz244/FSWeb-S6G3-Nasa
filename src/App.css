@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+.App h2 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 40px;
+}
+
+.App p {
+  font-family: "Courier New", Courier, monospace;
+  padding: 20px;
+  font-weight: bold;
+}
