@@ -5,7 +5,7 @@ export default function ImageViewer(props) {
 
   return (
     <div>
-      <img src={apod.url} alt={apod.title} />
+      <img src={apod.hdurl} alt={apod.title} />
     </div>
   );
 }

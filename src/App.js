@@ -20,6 +20,7 @@ function App() {
         params: {
           api_key: "IRJeAq9AyTTWD6exc7voehI8iAyoniavLesbLUzJ",
           date: date,
+          thumbs: true,
         },
       })
       .then((res) => {
@@ -32,11 +33,31 @@ function App() {
       });
   }, [date]);
 
+  const viewerBg = {
+    backgroundImage: `url(${
+      apod.media_type === "image" ? apod.url : apod.thumbnail_url
+    })`,
+    backgroundSize: "cover",
+    //filter: "blur(5px)",
+  };
+
+  /*style={viewerBg}*/
+
   return (
     <div className="App">
-      <DatePicker setDate={setDate} />
-      {!Object.keys(apod).length && <p>Yükleniyor...</p>}
-      {error && <p>Network Error: {error}</p>}
+      {!Object.keys(apod).length && <p className="loading">Yükleniyor...</p>}
+      {error && <p className="loading">Network Error: {error}</p>}
+
+      <div className="row header">
+        <div className="title">
+          <h1>Spacetagram</h1>
+          <p>Brought to you by NASA's Astronomy Photo Of The Day (APOD) API</p>
+        </div>
+        <div className="date-picker">
+          <DatePicker date={date} setDate={setDate} />
+        </div>
+      </div>
+
       {Object.keys(apod).length && !error && <View dataProp={apod} />}
     </div>
   );

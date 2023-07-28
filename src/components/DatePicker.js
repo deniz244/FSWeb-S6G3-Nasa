@@ -9,6 +9,7 @@ export default function DatePicker(props) {
 
   return (
     <div>
+      Lütfen görüntülemek istediğiniz tarihi seçin{" "}
       <input type="date" id="date" name="date" onChange={dateHandler} />
     </div>
   );
